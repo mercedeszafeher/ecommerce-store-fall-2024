@@ -1,0 +1,18 @@
+nav {
+  width: 100vw;
+  height: 10rem;
+  background: var(--color-layout);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 200rem;
+  }
+
+  > div a {
+    margin: 0.25rem;
+  }
+}
