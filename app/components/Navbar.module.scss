@@ -1,0 +1,57 @@
+.header {
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Logo styling
+.logo {
+  flex-shrink: 0;
+  img {
+    max-height: 50px;
+    width: auto;
+  }
+}
+
+// Nav bar styling
+.nav {
+  display: flex;
+  gap: 40px; // Space between each link
+  font-family: 'Open Sans', sans-serif;
+}
+
+// Link styling
+.nav a {
+  color: rgb(226, 210, 210);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+// Hover effect for the links
+.nav a:hover {
+  color: #ffcc00;
+}
+
+// Responsive design for smaller screens
+@media (max-width: 768px) {
+  .navContainer {
+    flex-direction: column;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav a {
+    font-size: 16px;
+  }
+}

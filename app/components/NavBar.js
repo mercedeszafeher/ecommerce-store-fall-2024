@@ -1,11 +1,25 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../globals.scss';
+import styles from './Navbar.module.scss';
 
 export default function NavBar() {
   return (
-    <header className={styles}>
-      <div>
-        <nav>
+    <header className={styles.header}>
+      <div className={styles.navContainer}>
+        {/* Logo on the left */}
+        <div className={styles.logo}>
+          <Link href="/">
+            <Image
+              src="/images/beers/logo.png"
+              alt="WanderBrew Logo"
+              width={150}
+              height={75}
+            />
+          </Link>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className={styles.nav}>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/products">Brew Picks</Link>

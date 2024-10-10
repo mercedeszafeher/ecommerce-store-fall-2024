@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getBeer } from '../database/beers';
+import styles from './ProductPage.module.scss';
 
 export const metadata = {
   title: 'Our assortment',
@@ -9,22 +10,26 @@ export const metadata = {
 export default function ProductPage() {
   const beerAssortment = getBeer();
   return (
-    <div>
+    <div className={styles.pageContainer}>
       <h1>Worldwide Brews, Just a Click Away </h1>
-      <h3>Our Assortment:</h3>
-      {beerAssortment.map((beer) => {
-        return (
-          <div key={`beers-${beer.id}`}>
-            <div>{beer.brand}</div>
-            <Image
-              src={`/images/beers/${beer.brand.toLowerCase()}.png`}
-              alt={beer.brand}
-              width={200}
-              height={400}
-            />
-          </div>
-        );
-      })}
+      <h2>Our Assortment:</h2>
+      <div className={styles.beerGrid}>
+        {beerAssortment.map((beer) => {
+          return (
+            <div className={styles.beerCard} key={`beers-${beer.id}`}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={`/images/beers/${beer.brand.toLowerCase()}.png`}
+                  alt={beer.brand}
+                  layout="fill"
+                  className={styles.beerImage}
+                />
+              </div>
+              <div className={styles.beerName}>{beer.brand}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

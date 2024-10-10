@@ -1,0 +1,42 @@
+.footer {
+  background-color: #333; // Dark background color, adjust as needed
+  color: #ffffff; // White text for contrast
+  padding: 40px 20px; // Padding to give space inside the footer
+  text-align: center; // Center all the text
+  font-family: 'Open Sans', sans-serif; // Modern font, similar to nav
+  font-size: 14px; // Font size for footer text
+  line-height: 1.5; // Spacing between lines
+
+  p {
+    margin: 10px 0; // Add some margin between paragraphs
+  }
+
+  a {
+    color: #ffcc00; // Link color (yellowish)
+    text-decoration: none; // Remove underline from links
+    transition: color 0.3s ease; // Smooth transition for hover effect
+
+    &:hover {
+      color: #ffffff; // White color on hover
+    }
+  }
+
+  // Social links styling
+  .social-icons {
+    margin-top: 20px;
+
+    // You can add icons (optional)
+    a {
+      margin: 0 10px;
+      font-size: 18px; // Increase size of social icons or links
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 10px; // Adjust padding for smaller screens
+    font-size: 12px; // Slightly reduce font size on smaller devices
+  }
+}
