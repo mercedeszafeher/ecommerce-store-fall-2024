@@ -15,10 +15,10 @@ export default function ProductPage() {
       {beerAssortment.map((beer) => {
         return (
           <div key={`beers-${beer.id}`}>
-            <div>{beer.name}</div>
+            <div>{beer.brand}</div>
             <Image
-              src={`/images/beers/${beer.name.toLowerCase()}.png`}
-              alt={beer.name}
+              src={`/images/beers/${beer.brand.toLowerCase()}.png`}
+              alt={beer.brand}
               width={200}
               height={400}
             />
