@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getBeer } from '../database/beer';
+import { getBeer } from '../database/beers';
 
 export const metadata = {
   title: 'Our assortment',
