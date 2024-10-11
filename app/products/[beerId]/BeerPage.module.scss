@@ -1,0 +1,106 @@
+.productContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.productContent {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // Soft shadow for card effect
+  padding: 30px;
+  gap: 40px;
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImage {
+  width: auto;
+  height: 400px;
+  object-fit: contain; // Ensures the entire image fits without being cut off
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.productImage:hover {
+  transform: scale(1.05); // Subtle zoom effect on hover
+}
+
+.productDetails {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.productTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.productDescription {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.productPrice {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.productInfo {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #020505;
+}
+
+@media (max-width: 768px) {
+  .productContent {
+    flex-direction: column; // Stack image and details vertically on smaller screens
+    padding: 20px;
+  }
+
+  .imageWrapper {
+    width: 100%;
+  }
+
+  .productDetails {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .productTitle {
+    font-size: 28px;
+  }
+
+  .productDescription {
+    font-size: 16px;
+  }
+
+  .productPrice {
+    font-size: 20px;
+  }
+}

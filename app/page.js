@@ -1,4 +1,4 @@
-import AddToCart from './AddToCart';
+import AddToCart from './components/AddToCart';
 import styles from './page.module.scss';
 import ProductPage from './products/page';
 

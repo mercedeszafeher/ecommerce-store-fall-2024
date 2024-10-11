@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getBeers } from '../database/beers';
 import styles from './ProductPage.module.scss';
 
@@ -17,15 +18,17 @@ export default function ProductPage() {
         {beers.map((beer) => {
           return (
             <div className={styles.beerCard} key={`beers-${beer.id}`}>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src={`/images/beers/${beer.brand.toLowerCase()}.png`}
-                  alt={beer.brand}
-                  layout="fill"
-                  className={styles.beerImage}
-                />
-              </div>
-              <div className={styles.beerName}>{beer.brand}</div>
+              <Link href={`/products/${beer.id}`}>
+                <div className={styles.imageWrapper}>
+                  <Image
+                    src={`/images/beers/${beer.brand.toLowerCase()}.png`}
+                    alt={beer.brand}
+                    layout="fill"
+                    className={styles.beerImage}
+                  />
+                </div>
+                <div className={styles.beerName}>{beer.brand}</div>
+              </Link>
             </div>
           );
         })}
