@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getBeer } from '../database/beers';
+import { getBeers } from '../database/beers';
 import styles from './ProductPage.module.scss';
 
 export const metadata = {
@@ -8,13 +8,13 @@ export const metadata = {
 };
 
 export default function ProductPage() {
-  const beerAssortment = getBeer();
+  const beers = getBeers();
   return (
     <div className={styles.pageContainer}>
       <h1>Worldwide Brews, Just a Click Away </h1>
       <h2>Our Assortment:</h2>
       <div className={styles.beerGrid}>
-        {beerAssortment.map((beer) => {
+        {beers.map((beer) => {
           return (
             <div className={styles.beerCard} key={`beers-${beer.id}`}>
               <div className={styles.imageWrapper}>

@@ -1,6 +1,6 @@
 import 'server-only';
 
-const beerAssortment = [
+const beers = [
   {
     id: 1,
     brand: 'Budweiser',
@@ -507,6 +507,10 @@ const beerAssortment = [
   },
 ];
 
-export function getBeer() {
-  return beerAssortment;
+export function getBeers() {
+  return beers;
+}
+
+export function getBeer(id) {
+  return beers.find((beer) => beer.id === id);
 }
