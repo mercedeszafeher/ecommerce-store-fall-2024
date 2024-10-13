@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import AddToCart from '../components/AddToCart';
 import { getBeers } from '../database/beers';
 import styles from './ProductPage.module.scss';
 
@@ -29,6 +30,7 @@ export default function ProductPage() {
                 </div>
                 <div className={styles.beerName}>{beer.brand}</div>
               </Link>
+              <AddToCart />
             </div>
           );
         })}

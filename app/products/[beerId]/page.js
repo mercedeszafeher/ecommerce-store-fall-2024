@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import AddToCart from '../../components/AddToCart';
 import { getBeer } from '../../database/beers';
 import styles from './BeerPage.module.scss';
 
@@ -42,6 +43,7 @@ export default async function BeerPage(props) {
             <span className={styles.highlight}>{singleBeer.origin}</span>, which
             is a <span className={styles.highlight}>{singleBeer.type}</span>.
           </div>
+          <AddToCart />
         </div>
       </div>
     </div>
