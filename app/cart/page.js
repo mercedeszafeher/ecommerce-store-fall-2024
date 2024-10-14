@@ -27,10 +27,11 @@ export default function CartPage() {
   }, []);
 
   // Calculate the total price
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+  const overallTotalPriceInCents = cartItems.reduce(
+    (sum, item) => sum + item.totalPrice,
     0,
   );
+  const overallTotalPrice = (overallTotalPriceInCents / 100).toFixed(2);
 
   return (
     <div>
@@ -42,11 +43,14 @@ export default function CartPage() {
           {cartItems.map((beer) => (
             <div key={`beers-${beer.id}`} style={{ marginBottom: '20px' }}>
               <h2>{beer.brand}</h2>
-              <p>Price: {beer.price} €</p>
+              <p>Price (per item): {(beer.price / 100).toFixed(2)} €</p>
               <p>Quantity: {beer.quantity}</p>
+              <p>
+                Total for this item: {(beer.totalPrice / 100).toFixed(2)} €{' '}
+              </p>
             </div>
           ))}
-          <h3>Total: ${totalPrice.toFixed(2)}</h3>
+          <h3>Overall Total: {overallTotalPrice} €</h3>
         </div>
       )}
     </div>

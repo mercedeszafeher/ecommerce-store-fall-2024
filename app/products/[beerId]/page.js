@@ -43,7 +43,7 @@ export default async function BeerPage(props) {
             <span className={styles.highlight}>{singleBeer.origin}</span>, which
             is a <span className={styles.highlight}>{singleBeer.type}</span>.
           </div>
-          <AddToCart />
+          <AddToCart beerId={singleBeer.id} price={singleBeer.price} />
         </div>
       </div>
     </div>

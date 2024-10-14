@@ -5,7 +5,7 @@ const beers = [
     type: 'American-style Lager',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const beers = [
     type: 'American-style light Lager',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const beers = [
     type: ' India Pale Ale',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const beers = [
     type: 'Citrusy sweet Belgian-style beer',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const beers = [
     type: 'Light-bodied, Pilsner-style Lager',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const beers = [
     type: 'American-style Lager',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const beers = [
     type: 'Boston Lager',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const beers = [
     type: 'Light Golden Ale',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const beers = [
     type: 'German Amber Lager',
     category: 'beer',
     origin: 'USA',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const beers = [
     type: 'Lager',
     category: 'beer',
     origin: 'Hungary',
-    price: '1.29',
+    price: 1.29,
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ const beers = [
     type: 'Traditional Hungarian Lager',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ const beers = [
     type: 'Pilsner Lager',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ const beers = [
     type: 'Premium Lager',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ const beers = [
     type: ' Pale Lager',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ const beers = [
     type: 'IPA',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ const beers = [
     type: 'Pale Ale',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ const beers = [
     type: 'Pale Lager',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 18,
@@ -141,7 +141,7 @@ const beers = [
     type: 'very light Pale Ale',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 19,
@@ -149,7 +149,7 @@ const beers = [
     type: 'unpasteurized Zwickelbier',
     category: 'beer',
     origin: 'Hungary',
-    price: '0.99',
+    price: 0.99,
   },
   {
     id: 20,
@@ -157,7 +157,7 @@ const beers = [
     type: 'Vienna Lager',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 21,
@@ -165,7 +165,7 @@ const beers = [
     type: 'Austrian Märzen',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 22,
@@ -173,7 +173,7 @@ const beers = [
     type: 'thirst-quenching Lager',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 23,
@@ -181,7 +181,7 @@ const beers = [
     type: 'Pale Bock',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 24,
@@ -189,7 +189,7 @@ const beers = [
     type: 'Wheat Beer',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 25,
@@ -197,7 +197,7 @@ const beers = [
     type: 'easy-drinking malty Lager',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 26,
@@ -205,7 +205,7 @@ const beers = [
     type: 'an easy, simple, tasteless Lager',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 27,
@@ -213,7 +213,7 @@ const beers = [
     type: 'European Pale Lager style',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 28,
@@ -221,7 +221,7 @@ const beers = [
     type: 'Märzen',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 29,
@@ -229,7 +229,7 @@ const beers = [
     type: 'Lager',
     category: 'beer',
     origin: 'Austria',
-    price: '1.16',
+    price: 1.16,
   },
   {
     id: 30,
@@ -237,7 +237,7 @@ const beers = [
     type: 'Amber Lager ',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 31,
@@ -245,7 +245,7 @@ const beers = [
     type: 'German Pilsner',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 32,
@@ -253,7 +253,7 @@ const beers = [
     type: 'Light Wheat Ale',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 33,
@@ -261,7 +261,7 @@ const beers = [
     type: 'characterful Pilsner',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 34,
@@ -269,7 +269,7 @@ const beers = [
     type: 'Helles Lager',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 35,
@@ -277,7 +277,7 @@ const beers = [
     type: 'German Pilsner',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 36,
@@ -285,7 +285,7 @@ const beers = [
     type: 'Pale Lager',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 37,
@@ -293,7 +293,7 @@ const beers = [
     type: 'Natur Radler',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 38,
@@ -301,7 +301,7 @@ const beers = [
     type: 'Helles Lager',
     category: 'beer',
     origin: 'Germany',
-    price: '1.59',
+    price: 1.59,
   },
   {
     id: 39,
@@ -309,7 +309,7 @@ const beers = [
     type: 'Pale Lager',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 40,
@@ -317,7 +317,7 @@ const beers = [
     type: 'Pale Lager',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 41,
@@ -325,7 +325,7 @@ const beers = [
     type: 'Premium Lager',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 42,
@@ -333,7 +333,7 @@ const beers = [
     type: 'Czech Pale Lager',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 43,
@@ -341,7 +341,7 @@ const beers = [
     type: 'Champagne type beer',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 44,
@@ -349,7 +349,7 @@ const beers = [
     type: 'Pale',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 45,
@@ -357,7 +357,7 @@ const beers = [
     type: 'Czech Pale',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 46,
@@ -365,7 +365,7 @@ const beers = [
     type: 'Czech Pilsner',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 47,
@@ -373,7 +373,7 @@ const beers = [
     type: 'Fruit Beer',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 48,
@@ -381,7 +381,7 @@ const beers = [
     type: 'Czech light Lager',
     category: 'beer',
     origin: 'Czech Republic',
-    price: '0.89',
+    price: 1.37,
   },
   {
     id: 49,
@@ -389,7 +389,7 @@ const beers = [
     type: 'Mexican Lager',
     category: 'beer',
     origin: 'Mexico',
-    price: '0.89',
+    price: 1.29,
   },
   {
     id: 50,
@@ -397,7 +397,7 @@ const beers = [
     type: 'Alcohol-free Mexican Lager',
     category: 'beer',
     origin: 'Mexico',
-    price: '0.89',
+    price: 1.29,
   },
   {
     id: 51,
@@ -405,7 +405,7 @@ const beers = [
     type: 'Munich Dunkel-style Lager',
     category: 'beer',
     origin: 'Mexico',
-    price: '0.89',
+    price: 1.29,
   },
   {
     id: 52,
@@ -413,7 +413,7 @@ const beers = [
     type: 'Vienna-style Lager',
     category: 'beer',
     origin: 'Mexico',
-    price: '0.89',
+    price: 1.29,
   },
   {
     id: 53,
@@ -421,7 +421,7 @@ const beers = [
     type: 'Pilsner-style Lager',
     category: 'beer',
     origin: 'Mexico',
-    price: '0.89',
+    price: 1.29,
   },
   {
     id: 54,
@@ -429,7 +429,7 @@ const beers = [
     type: 'Vietnam Pilsner-type Lager',
     category: 'beer',
     origin: 'Asia',
-    price: '0.89',
+    price: 0.89,
   },
   {
     id: 55,
@@ -437,7 +437,7 @@ const beers = [
     type: 'Laos Pilsner',
     category: 'beer',
     origin: 'Asia',
-    price: '0.89',
+    price: 0.89,
   },
   {
     id: 56,
@@ -445,7 +445,7 @@ const beers = [
     type: 'European Style Lager Beer',
     category: 'beer',
     origin: 'Asia',
-    price: '0.89',
+    price: 0.89,
   },
   {
     id: 57,
@@ -453,7 +453,7 @@ const beers = [
     type: 'Full-flavored standard Lager',
     category: 'beer',
     origin: 'Asia',
-    price: '0.89',
+    price: 0.89,
   },
   {
     id: 58,
@@ -461,7 +461,7 @@ const beers = [
     type: 'Pilsner-style Lager',
     category: 'beer',
     origin: 'Asia',
-    price: '0.89',
+    price: 0.89,
   },
   {
     id: 59,
@@ -469,7 +469,7 @@ const beers = [
     type: 'Belgian Blonde Ale style',
     category: 'beer',
     origin: 'Belgium',
-    price: '0.89',
+    price: 1.09,
   },
   {
     id: 60,
@@ -477,7 +477,7 @@ const beers = [
     type: 'Strong Golden Pale Ale',
     category: 'beer',
     origin: 'Belgium',
-    price: '0.89',
+    price: 1.09,
   },
   {
     id: 61,
@@ -485,7 +485,7 @@ const beers = [
     type: 'Belgian Red Strong Fruit Ale',
     category: 'beer',
     origin: 'Belgium',
-    price: '0.89',
+    price: 1.09,
   },
   {
     id: 62,
@@ -493,7 +493,7 @@ const beers = [
     type: 'classic Belgian seasonal Ale',
     category: 'beer',
     origin: 'Belgium',
-    price: '0.89',
+    price: 1.09,
   },
   {
     id: 63,
@@ -501,7 +501,7 @@ const beers = [
     type: 'Traditional Farmhouse Ale',
     category: 'beer',
     origin: 'Belgium',
-    price: '0.89',
+    price: 1.09,
   },
 ];
 
