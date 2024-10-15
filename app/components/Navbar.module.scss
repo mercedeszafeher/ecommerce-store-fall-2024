@@ -9,7 +9,6 @@
   align-items: center;
 }
 
-// Logo styling
 .logo {
   flex-shrink: 0;
   img {
@@ -18,14 +17,13 @@
   }
 }
 
-// Nav bar styling
 .nav {
   display: flex;
-  gap: 40px; // Space between each link
+  gap: 20px;
   font-family: 'Open Sans', sans-serif;
+  align-items: center;
 }
 
-// Link styling
 .nav a {
   color: rgb(226, 210, 210);
   text-decoration: none;
@@ -35,12 +33,18 @@
   transition: color 0.3s ease;
 }
 
-// Hover effect for the links
 .nav a:hover {
   color: #ffcc00;
 }
 
-// Responsive design for smaller screens
+.cartContainer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .navContainer {
     flex-direction: column;

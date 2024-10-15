@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
+import ShoppingCart from './ShoppingCart';
 
 export default function NavBar() {
   return (
@@ -24,6 +25,7 @@ export default function NavBar() {
           <Link href="/about">About</Link>
           <Link href="/products">Brew Picks</Link>
           <Link href="/contact">Contact</Link>
+          <ShoppingCart />
         </nav>
       </div>
     </header>

@@ -1,22 +1,25 @@
 'use client';
 
 import { useState } from 'react';
-import { getBeer } from '../database/beers';
-import createOrUpdateCart from '../products/[beerId]/actions';
+import createOrUpdateCart from '../cookies/actions';
 import styles from './Addtocart.module.scss';
 
-export default function AddToCart({ beerId, price }) {
+export default function AddToCart({ id, brand, price }) {
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = async () => {
-    await createOrUpdateCart(beerId, quantity, price);
-    alert('Added to your cart!');
+    try {
+      await createOrUpdateCart(id, brand, quantity, price);
+      alert('Added to your cart!');
+    } catch (error) {
+      console.error('Failed to add item to cart', error);
+    }
   };
 
   return (
     <div className={styles.addToCartContainer}>
       <div className={styles.quantityControl}>
-        <label htmlFor={`quantity-${beerId}`}>
+        <label htmlFor={`quantity-${id}`}>
           Quantity:
           <input
             className={styles.quantityInput}
@@ -28,10 +31,7 @@ export default function AddToCart({ beerId, price }) {
         </label>
       </div>
 
-      <button
-        onClick={() => handleAddToCart(getBeer.id, getBeer.price)}
-        className={styles.addToCartButton}
-      >
+      <button onClick={handleAddToCart} className={styles.addToCartButton}>
         Add to Cart
       </button>
     </div>

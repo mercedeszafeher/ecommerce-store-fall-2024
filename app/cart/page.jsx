@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getBeer } from '../database/beers'; // Import getBeer from your database
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState([]);
@@ -19,11 +18,7 @@ export default function CartPage() {
 
     // Fetch the cart items from the cookie
     const cartFromCookies = getCartItemsFromCookies();
-    const beerData = cartFromCookies.map((item) => {
-      const beer = getBeer(item.id); // Retrieve beer information from database
-      return { ...beer, quantity: item.quantity };
-    });
-    setCartItems(beerData);
+    setCartItems(cartFromCookies);
   }, []);
 
   // Calculate the total price
@@ -41,7 +36,7 @@ export default function CartPage() {
       ) : (
         <div>
           {cartItems.map((beer) => (
-            <div key={`beers-${beer.id}`} style={{ marginBottom: '20px' }}>
+            <div key={`beers-${beer.id}`} style={{ marginBottom: '10px' }}>
               <h2>{beer.brand}</h2>
               <p>Price (per item): {(beer.price / 100).toFixed(2)} €</p>
               <p>Quantity: {beer.quantity}</p>
