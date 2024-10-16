@@ -7,6 +7,7 @@ import { parseJson } from '../util/json';
 export default async function createOrUpdateCart(
   id,
   brand,
+  image,
   quantity,
   price,
   action = 'add',
@@ -14,8 +15,12 @@ export default async function createOrUpdateCart(
   // Get the cart cookie or initialize an empty array
   const cartCookie = await getCookie('cart');
   const cartItems = cartCookie === undefined ? [] : parseJson(cartCookie);
-
   const priceInCents = Math.round(price * 100);
+
+  if (typeof brand !== 'string' || typeof image !== 'string') {
+    console.error('Brand and image should be strings');
+    return;
+  }
 
   if (action === 'add') {
     // Check if the beer is already in the cart
@@ -28,27 +33,13 @@ export default async function createOrUpdateCart(
     } else {
       // Add new beer entry to the cart
       cartItems.push({
-        id: id,
-        brand: brand,
+        id,
+        brand,
+        image,
         quantity,
         price: priceInCents,
         totalPrice: quantity * priceInCents,
       });
-    }
-  } else if (action === 'delete') {
-    const beerToDelete = cartItems.find((cartItem) => cartItem.id === id);
-
-    if (beerToDelete) {
-      const newQuantity = quantity - beerToDelete.quantity;
-
-      if (newQuantity <= 0) {
-        const updatedCartItems = cartItems.filter((item) => item.id !== id);
-        await updateCartCookie(updatedCartItems);
-        return;
-      } else {
-        beerToDelete.quantity = newQuantity;
-        beerToDelete.totalPrice = newQuantity * priceInCents;
-      }
     }
   }
 

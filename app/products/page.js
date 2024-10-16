@@ -22,7 +22,11 @@ export default function ProductPage() {
               <Link href={`/products/${beer.id}`}>
                 <div className={styles.imageWrapper}>
                   <Image
-                    src={`/images/beers/${beer.brand.toLowerCase()}.png`}
+                    src={
+                      typeof beer.brand === 'string'
+                        ? `/images/beers/${beer.brand.toLowerCase()}.png`
+                        : '/images/no-image.png'
+                    }
                     alt={beer.brand}
                     layout="fill"
                     className={styles.beerImage}
@@ -30,7 +34,16 @@ export default function ProductPage() {
                 </div>
                 <div className={styles.beerName}>{beer.brand}</div>
               </Link>
-              <AddToCart />
+              <AddToCart
+                id={beer.id}
+                brand={beer.brand}
+                image={
+                  typeof beer.brand === 'string'
+                    ? `/images/beers/${beer.brand.toLowerCase()}.png`
+                    : '/images/no-image.png'
+                }
+                price={beer.price}
+              />
             </div>
           );
         })}

@@ -1,15 +1,18 @@
 'use client';
 
 import { useState } from 'react';
-import createOrUpdateCart from '../cookies/actions';
+import createOrUpdateCart from '../cookies/createOrUpdateCart';
 import styles from './Addtocart.module.scss';
 
-export default function AddToCart({ id, brand, price }) {
+export default function AddToCart({ id, brand, image, price }) {
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = async () => {
     try {
-      await createOrUpdateCart(id, brand, quantity, price);
+      if (!brand || !image) {
+        throw new Error('Invalid brand or image');
+      }
+      await createOrUpdateCart(id, brand, image, quantity, price);
       alert('Added to your cart!');
     } catch (error) {
       console.error('Failed to add item to cart', error);
