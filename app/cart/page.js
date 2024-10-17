@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import CheckoutButton from '../components/CheckoutButton';
 import RemoveFromCart from '../components/RemoveFromCart';
 
 export default function CartPage() {
@@ -61,6 +62,7 @@ export default function CartPage() {
             );
           })}
           <h3>Overall Total: {overallTotalPrice} €</h3>
+          <CheckoutButton />
         </div>
       )}
     </div>

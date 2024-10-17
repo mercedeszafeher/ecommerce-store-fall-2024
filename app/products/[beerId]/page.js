@@ -43,7 +43,16 @@ export default async function BeerPage(props) {
             <span className={styles.highlight}>{singleBeer.origin}</span>, which
             is a <span className={styles.highlight}>{singleBeer.type}</span>.
           </div>
-          <AddToCart beerId={singleBeer.id} price={singleBeer.price} />
+          <AddToCart
+            beerId={singleBeer.id}
+            price={singleBeer.price}
+            brand={singleBeer.brand}
+            image={
+              typeof singleBeer.brand === 'string'
+                ? `/images/beers/${singleBeer.brand.toLowerCase()}.png`
+                : '/images/no-image.png'
+            }
+          />
         </div>
       </div>
     </div>
