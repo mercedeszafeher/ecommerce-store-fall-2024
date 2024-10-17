@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import createOrUpdateCart from '../cookies/createOrUpdateCart';
+import createOrUpdateCart from '../cookies/actions';
 import styles from './Addtocart.module.scss';
 
 export default function AddToCart({ id, brand, image, price }) {
@@ -12,7 +12,8 @@ export default function AddToCart({ id, brand, image, price }) {
       if (!brand || !image) {
         throw new Error('Invalid brand or image');
       }
-      await createOrUpdateCart(id, brand, image, quantity, price);
+      const updatedCart = await createOrUpdateCart(id, brand, quantity, price);
+      console.log('Updated Cart:', updatedCart);
       alert('Added to your cart!');
     } catch (error) {
       console.error('Failed to add item to cart', error);

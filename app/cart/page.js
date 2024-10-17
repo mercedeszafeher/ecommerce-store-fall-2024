@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import RemoveFromCart from '../components/RemoveFromCart';
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState([]);
@@ -19,21 +20,6 @@ export default function CartPage() {
     const cartFromCookies = getCartItemsFromCookies();
     setCartItems(cartFromCookies);
   }, []);
-
-  // Function to delete a cart item
-  const deleteCartItem = async (id) => {
-    const response = await fetch(`/app/cookies/deleteCartItem?id=${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      // Remove the item from the state after deletion
-      const updatedCartItems = cartItems.filter((item) => item.id !== id);
-      setCartItems(updatedCartItems);
-    } else {
-      console.error('Failed to delete item:', response.statusText);
-    }
-  };
 
   // Calculate the total price
   const overallTotalPriceInCents = cartItems.reduce(
@@ -70,7 +56,7 @@ export default function CartPage() {
                 <p>
                   Total for this item: {(beer.totalPrice / 100).toFixed(2)} €{' '}
                 </p>
-                <button onClick={() => deleteCartItem(beer.id)}>Delete</button>
+                <RemoveFromCart id={beer.id} />
               </div>
             );
           })}
