@@ -1,6 +1,7 @@
 'use client';
 
 import removeFromCart from '../cookies/actions';
+import styles from './RemoveFromCart.module.scss';
 
 export default function RemoveFromCart({ id }) {
   const handleRemoveFromCart = async () => {
@@ -12,5 +13,12 @@ export default function RemoveFromCart({ id }) {
     }
   };
 
-  return <button onClick={handleRemoveFromCart}>Delete</button>;
+  return (
+    <button
+      onClick={handleRemoveFromCart}
+      className={styles.removeFromCartButton}
+    >
+      Delete
+    </button>
+  );
 }

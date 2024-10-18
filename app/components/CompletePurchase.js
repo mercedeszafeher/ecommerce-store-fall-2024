@@ -8,7 +8,11 @@ const deleteCookie = (cookieName) => {
   document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 };
 
-export default function CompletePurchase({ cartItems, totalPrice }) {
+export default function CompletePurchase({
+  cartItems,
+  totalPrice,
+  isFormValid,
+}) {
   const router = useRouter();
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -29,6 +33,13 @@ export default function CompletePurchase({ cartItems, totalPrice }) {
   };
 
   const handleCompletePurchase = async () => {
+    if (!isFormValid) {
+      alert(
+        'Please fill out all required fields before completing the purchase.',
+      );
+      return;
+    }
+
     if (!totalPrice || totalPrice <= 0 || cartItems.length === 0) {
       alert(
         'Your cart is empty. Please add items before completing the purchase.',
@@ -38,11 +49,9 @@ export default function CompletePurchase({ cartItems, totalPrice }) {
 
     setIsProcessing(true);
 
-    // Clear the cart and process the purchase
     const isCartCleared = await clearCart();
 
     if (isCartCleared) {
-      // Redirect to the Thank You page
       router.push('/thankyou');
     } else {
       alert('Failed to complete the purchase. Please try again.');
@@ -56,7 +65,7 @@ export default function CompletePurchase({ cartItems, totalPrice }) {
       <button
         className={styles.completePurchaseButton}
         onClick={handleCompletePurchase}
-        disabled={isProcessing}
+        disabled={isProcessing || !isFormValid}
       >
         {isProcessing ? 'Processing...' : 'Complete Purchase'}
       </button>

@@ -19,6 +19,7 @@ export default function CheckoutPage() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     // Get total price from localStorage
@@ -28,33 +29,38 @@ export default function CheckoutPage() {
     setTotalPrice(storedTotalPrice);
   }, []);
 
-  // Handle form input changes
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   // Form validation
-  const validateForm = () => {
+  const validateForm = (updatedFormData = formData) => {
     const newErrors = {};
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.address) newErrors.address = 'Address is required';
-    if (!formData.city) newErrors.city = 'City is required';
-    if (!formData.postalCode) newErrors.postalCode = 'Postal Code is required';
-    if (!formData.country) newErrors.country = 'Country is required';
-    if (!formData.cardNumber || formData.cardNumber.length < 16) {
+
+    if (!updatedFormData.name) newErrors.name = 'Name is required';
+    if (!updatedFormData.address) newErrors.address = 'Address is required';
+    if (!updatedFormData.city) newErrors.city = 'City is required';
+    if (!updatedFormData.postalCode)
+      newErrors.postalCode = 'Postal Code is required';
+    if (!updatedFormData.country) newErrors.country = 'Country is required';
+    if (!updatedFormData.cardNumber || updatedFormData.cardNumber.length < 16) {
       newErrors.cardNumber = 'A valid 16-digit card number is required';
     }
-    if (!formData.expiryDate) newErrors.expiryDate = 'Expiry date is required';
-    if (!formData.cvv || formData.cvv.length < 3) {
+    if (!updatedFormData.expiryDate)
+      newErrors.expiryDate = 'Expiry date is required';
+    if (!updatedFormData.cvv || updatedFormData.cvv.length < 3) {
       newErrors.cvv = 'A valid 3-digit CVV is required';
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const isValid = Object.keys(newErrors).length === 0;
+    setIsFormValid(isValid);
+    return isValid;
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    const updatedFormData = { ...formData, [name]: value };
+    setFormData(updatedFormData);
+
+    // Revalidate the form on every input change
+    validateForm(updatedFormData);
   };
 
   const handleSubmit = (event) => {
@@ -80,7 +86,6 @@ export default function CheckoutPage() {
               value={formData.name}
               onChange={handleInputChange}
             />
-
             {errors.name && (
               <p className={styles.errorMessage}>{errors.name}</p>
             )}
@@ -93,7 +98,6 @@ export default function CheckoutPage() {
               value={formData.address}
               onChange={handleInputChange}
             />
-
             {errors.address && (
               <p className={styles.errorMessage}>{errors.address}</p>
             )}
@@ -178,7 +182,11 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <CompletePurchase cartItems={cartItems} totalPrice={totalPrice} />
+          <CompletePurchase
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            isFormValid={isFormValid}
+          />
         </form>
       </div>
     </div>
