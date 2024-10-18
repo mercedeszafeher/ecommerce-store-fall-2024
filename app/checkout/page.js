@@ -36,14 +36,16 @@ export default function CheckoutPage() {
     if (!updatedFormData.name) newErrors.name = 'Name is required';
     if (!updatedFormData.address) newErrors.address = 'Address is required';
     if (!updatedFormData.city) newErrors.city = 'City is required';
-    if (!updatedFormData.postalCode)
+    if (!updatedFormData.postalCode) {
       newErrors.postalCode = 'Postal Code is required';
+    }
     if (!updatedFormData.country) newErrors.country = 'Country is required';
     if (!updatedFormData.cardNumber || updatedFormData.cardNumber.length < 16) {
       newErrors.cardNumber = 'A valid 16-digit card number is required';
     }
-    if (!updatedFormData.expiryDate)
+    if (!updatedFormData.expiryDate) {
       newErrors.expiryDate = 'Expiry date is required';
+    }
     if (!updatedFormData.cvv || updatedFormData.cvv.length < 3) {
       newErrors.cvv = 'A valid 3-digit CVV is required';
     }
