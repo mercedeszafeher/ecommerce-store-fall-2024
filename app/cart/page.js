@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import CheckoutButton from '../components/CheckoutButton';
 import RemoveFromCart from '../components/RemoveFromCart';
+import styles from './CartPage.module.scss';
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState([]);
@@ -30,10 +31,10 @@ export default function CartPage() {
   const overallTotalPrice = (overallTotalPriceInCents / 100).toFixed(2);
 
   return (
-    <div>
+    <div className={styles.cartContainer}>
       <h1>Your Cart</h1>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className={styles.emptyCartMessage}> Your cart is empty.</p>
       ) : (
         <div>
           {cartItems.map((beer) => {
@@ -41,7 +42,7 @@ export default function CartPage() {
               typeof beer.brand === 'string' ? beer.brand.toLowerCase() : '';
 
             return (
-              <div key={`beers-${beer.id}`} style={{ marginBottom: '10px' }}>
+              <div key={`beers-${beer.id}`} className={styles.cartItem}>
                 <img
                   src={
                     typeof beer.brand === 'string'
@@ -49,20 +50,28 @@ export default function CartPage() {
                       : '/images/no-image.png'
                   }
                   alt={beer.brand}
-                  style={{ width: '100px', height: 'auto' }}
+                  className={styles.itemImage}
                 />
-                <h2>{beer.brand}</h2>
-                <p>Price (per item): {(beer.price / 100).toFixed(2)} €</p>
-                <p>Quantity: {beer.quantity}</p>
-                <p>
-                  Total for this item: {(beer.totalPrice / 100).toFixed(2)} €{' '}
-                </p>
+                <div className={styles.itemDetails}>
+                  <h2 className={styles.itemBrand}>{beer.brand}</h2>
+                  <p className={styles.itemPrice}>
+                    Price (per item): {(beer.price / 100).toFixed(2)} €
+                  </p>
+                  <p className={styles.itemQuantity}>
+                    Quantity: {beer.quantity}
+                  </p>
+                  <p className={styles.itemTotal}>
+                    Total for this item: {(beer.totalPrice / 100).toFixed(2)} €{' '}
+                  </p>
+                </div>
                 <RemoveFromCart id={beer.id} />
               </div>
             );
           })}
-          <h3>Overall Total: {overallTotalPrice} €</h3>
-          <CheckoutButton />
+          <div className={styles.checkoutSection}>
+            <h3>Overall Total: {overallTotalPrice} €</h3>
+            <CheckoutButton cartItems={cartItems} />
+          </div>
         </div>
       )}
     </div>

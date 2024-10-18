@@ -1,8 +1,12 @@
 'use client';
+
 import { useEffect, useState } from 'react';
+import CompletePurchase from '../components/CompletePurchase';
+import styles from './CheckoutPage.module.scss';
 
 export default function CheckoutPage() {
   const [totalPrice, setTotalPrice] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -17,21 +21,23 @@ export default function CheckoutPage() {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    // Retrieve total price from localStorage
+    // Get total price from localStorage
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const storedTotalPrice = localStorage.getItem('totalPrice');
+    setCartItems(storedCartItems);
     setTotalPrice(storedTotalPrice);
   }, []);
 
   // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  // Simple form validation
+  // Form validation
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Name is required';
@@ -51,126 +57,130 @@ export default function CheckoutPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (validateForm()) {
-      // For now, just log the data
-      console.log('Checkout successful', formData);
-      alert('Thank you for your purchase!');
+      console.log('Form is valid, proceeding with checkout...');
     }
   };
 
   return (
-    <div>
-      <h1>Checkout</h1>
+    <div className={styles.checkoutContainer}>
+      <h1 className={styles.checkoutHeader}>Checkout</h1>
 
-      <p>Total Price: {totalPrice} €</p>
+      <div className={styles.checkoutForm}>
+        <h3>Total Amount: {totalPrice} €</h3>
 
-      <form onSubmit={handleSubmit}>
-        <h3>Shipping Information</h3>
-        <div>
-          <label>
-            Name:
+        <form onSubmit={handleSubmit}>
+          <h2>Shipping Information</h2>
+          <div className={styles.formGroup}>
+            <label htmlFor="name">Name:</label>
             <input
               name="name"
               value={formData.name}
               onChange={handleInputChange}
             />
-          </label>
-          {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-        </div>
-        <div>
-          <label>
-            Address:
+
+            {errors.name && (
+              <p className={styles.errorMessage}>{errors.name}</p>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="address">Address:</label>
             <input
               name="address"
               value={formData.address}
               onChange={handleInputChange}
             />
-          </label>
-          {errors.address && <p style={{ color: 'red' }}>{errors.address}</p>}
-        </div>
-        <div>
-          <label>
-            City:
+
+            {errors.address && (
+              <p className={styles.errorMessage}>{errors.address}</p>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="city">City:</label>
             <input
               name="city"
               value={formData.city}
               onChange={handleInputChange}
             />
-          </label>
-          {errors.city && <p style={{ color: 'red' }}>{errors.city}</p>}
-        </div>
-        <div>
-          <label>
-            Postal Code:
+            {errors.city && (
+              <p className={styles.errorMessage}>{errors.city}</p>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="postalCode">Postal Code:</label>
             <input
               name="postalCode"
               value={formData.postalCode}
               onChange={handleInputChange}
             />
-          </label>
-          {errors.postalCode && (
-            <p style={{ color: 'red' }}>{errors.postalCode}</p>
-          )}
-        </div>
-        <div>
-          <label>
-            Country:
+            {errors.postalCode && (
+              <p className={styles.errorMessage}>{errors.postalCode}</p>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="country">Country:</label>
             <input
               name="country"
               value={formData.country}
               onChange={handleInputChange}
             />
-          </label>
-          {errors.country && <p style={{ color: 'red' }}>{errors.country}</p>}
-        </div>
+            {errors.country && (
+              <p className={styles.errorMessage}>{errors.country}</p>
+            )}
+          </div>
 
-        <h3>Payment Information</h3>
-        <div>
-          <label>
-            Card Number:
-            <input
-              name="cardNumber"
-              value={formData.cardNumber}
-              onChange={handleInputChange}
-              maxLength="16"
-            />
-          </label>
-          {errors.cardNumber && (
-            <p style={{ color: 'red' }}>{errors.cardNumber}</p>
-          )}
-        </div>
-        <div>
-          <label>
-            Expiry Date (MM/YY):
-            <input
-              name="expiryDate"
-              value={formData.expiryDate}
-              onChange={handleInputChange}
-              placeholder="MM/YY"
-            />
-          </label>
-          {errors.expiryDate && (
-            <p style={{ color: 'red' }}>{errors.expiryDate}</p>
-          )}
-        </div>
-        <div>
-          <label>
-            CVV:
-            <input
-              name="cvv"
-              value={formData.cvv}
-              onChange={handleInputChange}
-              maxLength="3"
-            />
-          </label>
-          {errors.cvv && <p style={{ color: 'red' }}>{errors.cvv}</p>}
-        </div>
+          <h2>Payment Details</h2>
 
-        <button>Complete Purchase</button>
-      </form>
+          <div className={styles.paymentDetails}>
+            <div>
+              <label htmlFor="cardNumber">Card Number:</label>
+              <input
+                name="cardNumber"
+                value={formData.cardNumber}
+                onChange={handleInputChange}
+                maxLength="16"
+              />
+              {errors.cardNumber && (
+                <p className={styles.errorMessage}>{errors.cardNumber}</p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="expiryDate">Expiry Date (MM/YY):</label>
+              <input
+                name="expiryDate"
+                value={formData.expiryDate}
+                onChange={handleInputChange}
+                placeholder="MM/YY"
+              />
+              {errors.expiryDate && (
+                <p className={styles.errorMessage}>{errors.expiryDate}</p>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="cvv">CVV:</label>
+              <input
+                name="cvv"
+                value={formData.cvv}
+                onChange={handleInputChange}
+                maxLength="3"
+              />
+              {errors.cvv && (
+                <p className={styles.errorMessage}>{errors.cvv}</p>
+              )}
+            </div>
+          </div>
+
+          <CompletePurchase cartItems={cartItems} totalPrice={totalPrice} />
+        </form>
+      </div>
     </div>
   );
 }

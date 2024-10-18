@@ -1,28 +1,37 @@
 'use client';
-
 import { useRouter } from 'next/navigation';
+import styles from './CheckoutButton.module.scss';
 
-export default function CheckoutButton({ overallTotalPrice }) {
+export default function CheckoutButton({ cartItems }) {
   const router = useRouter();
 
   // Function to handle checkout logic
   const handleCheckout = () => {
-    if (!overallTotalPrice || overallTotalPrice <= 0) {
+    if (cartItems.length === 0) {
       alert(
         'Your cart is empty. Please add items to your cart before checkout.',
       );
       return;
     }
 
-    // Store the total price in local storage or pass it through query params
-    localStorage.setItem('totalPrice', overallTotalPrice);
+    const totalPrice = cartItems.reduce(
+      (sum, item) => sum + item.totalPrice,
+      0,
+    );
+
+    // Store the cart items and total price in localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    localStorage.setItem('totalPrice', (totalPrice / 100).toFixed(2));
+
     // Navigate to the checkout page
     router.push('/checkout');
   };
 
   return (
-    <div>
-      <button onClick={handleCheckout}>Proceed to Checkout</button>
+    <div className={styles.checkoutButtonContainer}>
+      <button className={styles.checkoutButton} onClick={handleCheckout}>
+        Proceed to Checkout
+      </button>
     </div>
   );
 }
