@@ -10,7 +10,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "dotenv-safe": "^9.1.0",
     "next": "15.0.0-canary.171",
+    "postgres": "^3.4.4",
     "react": "19.0.0-rc-2d16326d-20240930",
     "react-dom": "19.0.0-rc-2d16326d-20240930",
     "sass": "^1.79.4",
@@ -18,11 +20,12 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "@types/dotenv-safe": "^8.1.6",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "eslint": "^9.12.0",
-    "eslint-config-upleveled": "^8.7.2",
+    "eslint-config-upleveled": "^8.8.0",
     "prettier": "^3.3.3",
     "stylelint": "^16.9.0",
     "stylelint-config-upleveled": "^1.1.4",
