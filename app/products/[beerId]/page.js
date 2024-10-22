@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import React from 'react';
 import AddToCart from '../../components/AddToCart';
-import { getBeer } from '../../database/beers';
+import { getBeerInsecure } from '../../database/beers';
 import styles from './BeerPage.module.scss';
 
 export async function generateMetadata(props) {
-  const singleBeer = getBeer(Number((await props.params).beerId));
+  const singleBeer = await getBeerInsecure(Number((await props.params).beerId));
   return {
     title: singleBeer.brand,
     description: 'This is the page for the single product',
   };
 }
 export default async function BeerPage(props) {
-  const singleBeer = getBeer(Number((await props.params).beerId));
+  const singleBeer = await getBeerInsecure(Number((await props.params).beerId));
 
   return (
     <div className={styles.productContainer}>
@@ -36,7 +36,7 @@ export default async function BeerPage(props) {
             profile, origin, and what makes it stand out in our world-class
             selection.
           </p>
-          <div className={styles.productPrice}>Price: {singleBeer.price}</div>
+          <div className={styles.productPrice}>Price: {singleBeer.price}€</div>
           <div className={styles.productInfo}>
             This <span className={styles.highlight}>{singleBeer.category}</span>{' '}
             is from{' '}

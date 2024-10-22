@@ -1,3 +1,7 @@
+import { cache } from 'react';
+import { sql } from './connect';
+
+/* This data is now coming from the database
 const beers = [
   {
     id: 1,
@@ -503,12 +507,29 @@ const beers = [
     origin: 'Belgium',
     price: 1.09,
   },
-];
+]; */
 
-export function getBeers() {
+type Beer = {
+  id: number;
+  brand: string;
+  type: string;
+  category: string;
+  origin: string;
+  price: number;
+};
+
+export const getBeersInsecure = cache(async () => {
+  const beers = await sql<Beer[]>`
+      SELECT * FROM beers
+      `;
+
   return beers;
-}
+});
 
-export function getBeer(id) {
-  return beers.find((beer) => beer.id === id);
-}
+export const getBeerInsecure = cache(async (id: number) => {
+  const [beers] = await sql<Beer[]>`
+      SELECT * FROM beers WHERE id = ${id}
+      `;
+
+  return beers;
+});

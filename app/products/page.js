@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import AddToCart from '../components/AddToCart';
-import { getBeers } from '../database/beers';
+import { getBeersInsecure } from '../database/beers';
 import styles from './ProductPage.module.scss';
 
 export const metadata = {
@@ -9,8 +9,8 @@ export const metadata = {
   description: ' ',
 };
 
-export default function ProductPage() {
-  const beers = getBeers();
+export default async function ProductPage() {
+  const beers = await getBeersInsecure();
   return (
     <div className={styles.pageContainer}>
       <h1>Worldwide Brews, Just a Click Away </h1>
