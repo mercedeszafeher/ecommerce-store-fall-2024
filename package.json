@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "dotenv-safe": "^9.1.0",
-    "next": "15.0.0-canary.171",
+    "next": "15.0.1-canary.1",
     "postgres": "^3.4.4",
     "react": "19.0.0-rc-2d16326d-20240930",
     "react-dom": "19.0.0-rc-2d16326d-20240930",
+    "react-slick": "^0.30.2",
     "sass": "^1.79.4",
     "secure-json-parse": "^2.7.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
     "@types/dotenv-safe": "^8.1.6",
