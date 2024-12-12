@@ -62,7 +62,6 @@ WanderBrew is built using modern technologies to deliver a smooth and engaging s
 - **Reviews & Ratings:** Allow users to rate and review beers for community-driven recommendations.
 
 ## Acknowledgments
-- **Open-Source Tools:** For enabling a robust, modern development environment.
 - **Database Libraries & Migrations:** For reliable schema evolution and data integrity.
 
 ### Contact
