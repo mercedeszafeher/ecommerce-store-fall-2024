@@ -1,42 +1,42 @@
 .footer {
-  background-color: #333; // Dark background color, adjust as needed
-  color: #ffffff; // White text for contrast
-  padding: 40px 20px; // Padding to give space inside the footer
-  text-align: center; // Center all the text
-  font-family: 'Open Sans', sans-serif; // Modern font, similar to nav
-  font-size: 14px; // Font size for footer text
-  line-height: 1.5; // Spacing between lines
+  background-color: #333; 
+  color: #ffffff; 
+  padding: 40px 20px; 
+  text-align: center; 
+  font-family: 'Open Sans', sans-serif; 
+  font-size: 14px; 
+  line-height: 1.5; 
 
   p {
-    margin: 10px 0; // Add some margin between paragraphs
+    margin: 10px 0; 
   }
 
   a {
-    color: #ffcc00; // Link color (yellowish)
-    text-decoration: none; // Remove underline from links
-    transition: color 0.3s ease; // Smooth transition for hover effect
+    color: #ffcc00; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
 
     &:hover {
-      color: #ffffff; // White color on hover
+      color: #ffffff; 
     }
   }
 
-  // Social links styling
+  
   .social-icons {
     margin-top: 20px;
 
-    // You can add icons (optional)
+    
     a {
       margin: 0 10px;
-      font-size: 18px; // Increase size of social icons or links
+      font-size: 18px; 
     }
   }
 }
 
-// Responsive Design
+
 @media (max-width: 768px) {
   .footer {
-    padding: 30px 10px; // Adjust padding for smaller screens
-    font-size: 12px; // Slightly reduce font size on smaller devices
+    padding: 30px 10px; 
+    font-size: 12px; 
   }
 }
