@@ -15,12 +15,13 @@ WanderBrew is a global e-commerce platform dedicated to discovering and purchasi
 
 ### Screenshots
 
-_Frontend Design (Example)_
+_Frontend Design_
 
 *(Will be updated)*
 
-_Database Setup (Example)_
+_Database Setup_
 
+![Screenshot 2024-10-21 at 18 18 15](https://github.com/user-attachments/assets/c590144a-85e0-4b47-8241-2e4e40edb01a)
 
 
 ### Tech Stack
